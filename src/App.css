@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,11 +23,92 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.Ap-corpus{
+  background-color: #98353D;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #95f8f0;
+}
 .App-link {
   color: #61dafb;
 }
+#bienvenida p{
 
+  text-align: justify;
+}
+#bienvenida h1{
+  text-align: center;
+}
+#bienvenida{
+  max-width: 75%;
+}
+.estilo p{
+
+  text-align: justify;
+}
+.estilo h1{
+  text-align: center;
+}
+.estilo{
+  max-width: 75%;
+}
+table{
+  table-layout: fixed;
+  width: 45%;
+  display: block;
+  margin: auto;
+  align-self: center;
+  text-align: justify;
+}
+td{
+  width: 50%;
+}
+tr{
+  border: 1px solid #282c34;
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+tbody{
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+input{
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  height: 25px;
+  width: 495px;
+}
+select{
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  height: 25px;
+  width: 495px;
+  text-align: center;
+}
+option{
+  text-align: center;
+}
+table button{
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  height: 25px;
+  width: 495px;
+  display: block;
+  margin: auto;
+}
+.response{
+  text-align: right;
+  width: 100%,
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
