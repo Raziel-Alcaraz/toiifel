@@ -100,7 +100,7 @@ Sexo/Género:</label></td>
     <tr><td>
     <label>
     Intereses:</label></td>
-    <td></td></tr><tr><td></td><td>
+    <td></td></tr><tr className="intereses"><td></td><td>
     <label>    <input
             name="hombres"            type="checkbox"
             checked={this.state.hombres}
