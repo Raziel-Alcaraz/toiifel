@@ -15,7 +15,17 @@
 
 .App-header {
   background-color: #282c34;
-  height: 10vh;
+  height: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.Ap-bottom {
+  background-color: #282c34;
+  height: 5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,6 +42,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: #95f8f0;
+  padding-bottom: 2vh;
 }
 .App-link {
   color: #61dafb;
@@ -46,6 +57,12 @@
 #bienvenida{
   max-width: 75%;
 }
+#botonPerfil{
+  position: absolute;
+  right: 5px;
+  top: 6vh;
+  width: 70px;
+}
 .estilo p{
 
   text-align: justify;
@@ -56,7 +73,7 @@
 .estilo{
   max-width: 75%;
 }
-table{
+.tabRegistro{
   table-layout: fixed;
   width: 45%;
   display: block;
@@ -64,7 +81,23 @@ table{
   align-self: center;
   text-align: justify;
 }
-td{
+.preguntasTabla{
+  table-layout: fixed;
+  width: 85vw;
+  margin: auto;
+  align-self: center;
+
+}
+.respuestasDer{
+  text-align: center;
+}
+.preg{
+  text-align: left;
+}
+.preguntasTabla td{
+  width: 5%;
+}
+td .registro{
   width: 50%;
 }
 tr{
@@ -78,13 +111,15 @@ tbody{
   display: block;
   margin: auto;
 }
-input{
-  width: 100%;
+.input{
   height: 100%;
   border-radius: 12px;
   height: 25px;
   width: 495px;
+  min-width: 70%;
+  max-width: 75%;
 }
+
 select{
   width: 100%;
   height: 100%;
@@ -92,12 +127,13 @@ select{
   height: 25px;
   width: 495px;
   text-align: center;
+  max-width: 75%;
 }
 option{
   text-align: center;
 }
 table button{
-  width: 100%;
+  max-width: 75%;
   height: 100%;
   border-radius: 12px;
   height: 25px;
@@ -116,4 +152,21 @@ table button{
   to {
     transform: rotate(360deg);
   }
+}
+@media (orientation: portrait) {
+  input, select, button, table button{
+ width: 200px;
+}
+.tabRegistro{
+  width: 95%;
+}
+.App-header{
+  height: 5vh;
+}
+.Ap-bottom{
+  height: 5vh;
+}
+.Ap-corpus{
+  min-height: 90vh;
+}
 }

@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import logo from './logo.png';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
@@ -50,6 +50,12 @@ docRef.get().then((doc) => {
     if (doc.exists) {
         console.log("Document data:", doc.data());
         if(this.props.revisarPerfil ==true){
+            this.setState({age: doc.get("age"), name: doc.get("name"),
+           sex: doc.get("sex"), tel: doc.get("tel"), hombres: doc.get("hombres"),
+ mujeres: doc.get("mujeres"),hombresT: doc.get("hombresT"),
+mujeresT: doc.get("mujeresT")
+
+         });
           this.setState({pantallaPorMostrar : "Registro"});
         }else{
         this.setState({pantallaPorMostrar : "Root"});
@@ -81,6 +87,9 @@ if(this.state.pantallaPorMostrar === "Login"){
       <div id="paginaprincipal" className="Ap-corpus">
     <ToiifelLogin/>
       </div>
+      <div id="bottom" className="Ap-bottom">
+
+      </div>
     </div>
   );
 }
@@ -93,6 +102,9 @@ if(this.state.pantallaPorMostrar === "Login"){
         <div id="paginaprincipal" className="Ap-corpus">
 <ToiifelRoot/>
         </div>
+        <div id="bottom" className="Ap-bottom">
+
+        </div>
       </div>
     );}
     else if(this.state.pantallaPorMostrar === "Registro"){
@@ -102,7 +114,15 @@ if(this.state.pantallaPorMostrar === "Login"){
           <button onClick={logout} id="Salir">Salir</button>
           </header>
           <div id="paginaprincipal" className="Ap-corpus">
-  <Registro usuario = {usuario}/>
+  <Registro usuario = {usuario} age = {this.state.age}
+  name = {this.state.name} sex = {this.state.sex} tel = {this.state.tel}
+  hombres = {this.state.hombres}
+  mujeres = {this.state.mujeres}
+  hombresT = {this.state.hombresT}
+  mujeresT = {this.state.mujeresT} />
+          </div>
+          <div id="bottom" className="Ap-bottom">
+
           </div>
         </div>
       );}
@@ -113,6 +133,9 @@ if(this.state.pantallaPorMostrar === "Login"){
           </header>
           <div id="paginaprincipal" className="Ap-corpus">
 <ToiifelLogin/>
+          </div>
+          <div id="bottom" className="Ap-bottom">
+
           </div>
         </div>
       );

@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Seccion from './Seccion';
 import firebase from "firebase/app";
 import  "firebase/auth";
 import "firebase/firestore";
@@ -10,9 +11,12 @@ import "firebase/firestore";
 function ToiifelRoot() {
 
   return (
+    <div>
+<Seccion seccion="1"/>
     <p >
-    Este es el toifel<button onClick={checarPerfil}>Perfil</button>
+    <button id="botonPerfil" onClick={checarPerfil}>Perfil</button>
     </p>
+    </div>
   );
 }
 function checarPerfil(){

@@ -10,21 +10,38 @@ import "firebase/firestore";
 class Registro  extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {name: '', sex:'', tel:''};
+    this.state = {name: this.props.name, sex:this.props.sex,
+       tel:this.props.tel, age:this.props.age, hombres:this.props.hombres,
+       mujeresT:this.props.mujeresT, hombresT:this.props.hombresT, mujeres:this.props.mujeres};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
+
+Object.keys(this.state).forEach(key => {
+    if (!this.state[key]) {
+      this.state[key] = "";
+    }
+});
+
+
+console.log("estado");
+    console.log(this.state);
   }
   handleChange(event) {
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
+
     const name = target.name;
         this.setState({[name]: event.target.value});
+        if(target.type === "checkbox"){
+            this.setState({[name]: value});
+        }
       }
   handleSubmit(event) {
-
+event.preventDefault();
     this.addData();
 
-    event.preventDefault();
+
   }
 render(){
   return (
@@ -39,7 +56,7 @@ render(){
     </p>
 
     <form  onSubmit={this.handleSubmit}>
-    <table><tbody><tr><td>
+    <table className="tabRegistro"><tbody><tr><td>
               <label>
              Nombre:
              </label>
@@ -48,7 +65,7 @@ render(){
              </tr><tr>
              <td></td>
              <td className="response"  colSpan="2">
-             <input name="name" type="text" id="nombre" value={this.state.name} onChange={this.handleChange} />
+             <input className="input" name="name" type="text" id="nombre" value={this.state.name} onChange={this.handleChange} />
             </td>
     </tr>
     {/*preg generica inicio */}
@@ -56,7 +73,8 @@ render(){
 <label>
 Sexo/Género:</label></td>
 <td></td></tr><tr><td></td><td>
-<select  name="sex" id="sexo" value={this.state.sex} onChange={this.handleChange}>
+<select  className="input" name="sex" id="sex" value={this.state.sex} onChange={this.handleChange}>
+<option disabled value="null">Seleccione</option>
 <option value="hombre">Hombre</option>
 <option value="mujer">Mujer</option>
 <option value="mujerT">Mujer trans</option>
@@ -79,7 +97,31 @@ Sexo/Género:</label></td>
            <option value="60">+52</option>
          </select>
     </td></tr>
-
+    <tr><td>
+    <label>
+    Intereses:</label></td>
+    <td></td></tr><tr><td></td><td>
+    <label>    <input
+            name="hombres"            type="checkbox"
+            checked={this.state.hombres}
+            onChange={this.handleChange} />Hombres
+        </label><br></br>
+  <label>
+         <input  name="mujeres"  type="checkbox"
+         checked={this.state.mujeres}
+          onChange={this.handleChange} />Mujeres
+      </label><br></br>
+      <label>
+          <input
+              name="hombresT"            type="checkbox"
+              checked={this.state.hombresT}
+              onChange={this.handleChange} />  Hombres trans
+          </label><br></br>
+      <label><input
+              name="mujeresT"            type="checkbox"
+              checked={this.state.mujeresT}
+              onChange={this.handleChange} />  Mujeres trans  </label>
+    </td></tr>
            <tr><td>
                      <label>
                   Teléfono (para recibir sugerencias cuando implementemos la función):
@@ -89,7 +131,7 @@ Sexo/Género:</label></td>
                     </tr><tr>
                     <td></td>
                     <td className="response"  colSpan="2">
-                    <input name="tel" type="tel" id="tel" value={this.state.tel} onChange={this.handleChange} />
+                    <input  className="input"  name="tel" type="text" id="tel" value={this.state.tel} onChange={this.handleChange} />
                    </td>
            </tr>
            <tr><td colSpan="2">
@@ -108,9 +150,11 @@ Sexo/Género:</label></td>
 
       db.collection("users").doc(this.props.usuario.uid).set(this.state)
       .then(() => {
-          console.log("Document successfully written!");
+          console.log("Document successfully written! ok ");
           ReactDOM.render(
-              <App revisarPerfil={true}/>,
+            <React.StrictMode>
+              <App />
+            </React.StrictMode>,
             document.getElementById('root')
           );
       })

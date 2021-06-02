@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import logo from './logo.svg';
+import logo from './logo.png';
 import './App.css';
 import { render } from "react-dom";
 import firebase from "firebase/app";
