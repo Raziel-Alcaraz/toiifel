@@ -163,6 +163,9 @@ table button{
 .App-header{
   height: 5vh;
 }
+.respuestasDer input{
+width:50px;
+}
 .Ap-bottom{
   height: 5vh;
 }

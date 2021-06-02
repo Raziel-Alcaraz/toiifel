@@ -63,10 +63,11 @@ event.preventDefault();
 
           items.push(<tr><td className="preg" colspan="5"><Pregunta pregunta={this.state.preguntas[index]} /></td></tr>);
           items.push(<tr className="respuestasDer"  onChange={this.handleChange}>
-            <td> <input type="radio" value="0" name={this.state.numeros[index]} /> Nada</td>
-            <td> <input type="radio" value="1" name={this.state.numeros[index]} /> Poco</td>
-            <td> <input type="radio" value="2" name={this.state.numeros[index]} /> Algo</td>
-            <td> <input type="radio" value="3" name={this.state.numeros[index]} /> Mucho</td>
+            <td> <input type="radio" value="0" name={this.state.numeros[index]} />¡No lo haría!</td>
+            <td> <input type="radio" value="1" name={this.state.numeros[index]} />Si mi pareja quiere</td>
+            <td> <input type="radio" value="2" name={this.state.numeros[index]} />Ya lo hacemos</td>
+            <td> <input type="radio" value="3" name={this.state.numeros[index]} />Quiero hacerlo</td>
+            <td> <input type="radio" value="4" name={this.state.numeros[index]} />Es mi fantasía</td>
             </tr>);
   }
 
