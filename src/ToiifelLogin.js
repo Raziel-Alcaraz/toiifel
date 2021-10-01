@@ -48,9 +48,11 @@ class ToiifelLogin extends React.Component {
 loguear(){
   console.log("loguieandio")
   var provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithRedirect(provider);
 firebase.auth()
-  .signInWithPopup(provider)
-  .then((result) => {
+.getRedirectResult()
+.then((result) => {
+
     /** @type {firebase.auth.OAuthCredential} */
     var credential = result.credential;
 
